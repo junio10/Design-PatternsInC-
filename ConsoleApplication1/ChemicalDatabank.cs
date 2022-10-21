@@ -38,6 +38,9 @@ namespace Adapter.RealWorld
 
             ethanol.Display();
 
+            Compound uranio = new RichCompound("Uranio");
+
+            uranio.Display();
 
             // Wait for user
 
@@ -143,7 +146,8 @@ namespace Adapter.RealWorld
 
                     case "ethanol":
                         return -114.1f;
-
+                    case "uranio":
+                        return 102.1f;
                     default:
                         return 0f;
                 }
@@ -163,7 +167,8 @@ namespace Adapter.RealWorld
 
                     case "ethanol":
                         return 78.3f;
-
+                    case "uranio":
+                        return 66.3f;
                     default:
                         return 0f;
                 }
@@ -183,7 +188,8 @@ namespace Adapter.RealWorld
 
                 case "ethanol":
                     return "C2H5OH";
-
+                case "uranio":
+                    return "FFFFFFU";
                 default:
                     return "";
             }
@@ -202,7 +208,8 @@ namespace Adapter.RealWorld
 
                 case "ethanol":
                     return 46.0688;
-
+                case "uranio":
+                    return 32.2211;
                 default:
                     return 0d;
             }

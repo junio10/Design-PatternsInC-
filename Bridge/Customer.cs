@@ -40,6 +40,8 @@ namespace Bridge.RealWorld
 
             customers.Add("Henry Velasquez");
 
+            customers.LastRecord();
+
 
             customers.ShowAll();
 
@@ -106,6 +108,10 @@ namespace Bridge.RealWorld
             _dataObject.ShowRecord();
         }
 
+        public virtual void LastRecord()
+        {
+            _dataObject.LastRecord(); 
+        }
 
         public virtual void ShowAll()
         {
@@ -158,6 +164,8 @@ namespace Bridge.RealWorld
         public abstract void DeleteRecord(string name);
 
         public abstract void ShowRecord();
+
+        public abstract void LastRecord();
 
         public abstract void ShowAllRecords();
     }
@@ -220,6 +228,11 @@ namespace Bridge.RealWorld
 
 
         public override void ShowRecord()
+        {
+            Console.WriteLine(_customers[_current]);
+        }
+
+        public override void LastRecord()
         {
             Console.WriteLine(_customers[_current]);
         }

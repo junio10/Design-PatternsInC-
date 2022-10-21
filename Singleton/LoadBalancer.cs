@@ -24,6 +24,8 @@ namespace Singleton.RealWorld
 
             LoadBalancer b4 = LoadBalancer.GetLoadBalancer();
 
+            LoadBalancer b5 = LoadBalancer.GetLoadBalancer();
+
 
             // Same instance?
 

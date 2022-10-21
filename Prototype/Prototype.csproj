@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Prototype.Structural.MainApp</StartupObject>
+    <StartupObject>Prototype.RealWorld.MainApp</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
