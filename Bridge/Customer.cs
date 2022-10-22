@@ -234,7 +234,7 @@ namespace Bridge.RealWorld
 
         public override void LastRecord()
         {
-            Console.WriteLine(_customers[_current]);
+            Console.WriteLine(_customers[_customers.Count]);
         }
 
 
