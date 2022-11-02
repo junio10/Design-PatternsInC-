@@ -15,16 +15,21 @@ namespace Chain.RealWorld
         {
             // Setup Chain of Responsibility
 
+            Approver dosea = new ProfessorAuxiliar();
             Approver larry = new Director();
 
             Approver sam = new VicePresident();
 
             Approver tammy = new President();
 
+            Approver dean = new ChefeImediato();    
+
 
             larry.SetSuccessor(sam);
 
             sam.SetSuccessor(tammy);
+
+            dean.SetSuccessor(larry);
 
 
             // Generate and process purchase requests
@@ -42,6 +47,10 @@ namespace Chain.RealWorld
             p = new Purchase(2036, 122100.00, "Project Y");
 
             larry.ProcessRequest(p);
+
+            p = new Purchase(2037, 1000.00, "Project Z");
+
+            dean.ProcessRequest(p);
 
 
             // Wait for user
@@ -72,6 +81,22 @@ namespace Chain.RealWorld
     /// <summary>
     /// The 'ConcreteHandler' class
     /// </summary>
+    internal class ProfessorAuxiliar : Approver
+    {
+        public override void ProcessRequest(Purchase purchase)
+        {
+            if (purchase.Amount < 10.0)
+            {
+                Console.WriteLine("{0} approved request# {1}",
+                                  GetType().Name, purchase.Number);
+            }
+
+            else if (successor != null)
+            {
+                successor.ProcessRequest(purchase);
+            }
+        }
+    }
     internal class Director : Approver
     {
         public override void ProcessRequest(Purchase purchase)
@@ -119,6 +144,25 @@ namespace Chain.RealWorld
         public override void ProcessRequest(Purchase purchase)
         {
             if (purchase.Amount < 100000.0)
+            {
+                Console.WriteLine("{0} approved request# {1}",
+                                  GetType().Name, purchase.Number);
+            }
+
+            else
+            {
+                Console.WriteLine(
+                    "Request# {0} requires an executive meeting!",
+                    purchase.Number);
+            }
+        }
+    }
+
+    internal class ChefeImediato : Approver
+    {
+        public override void ProcessRequest(Purchase purchase)
+        {
+            if (purchase.Amount < 5000.0)
             {
                 Console.WriteLine("{0} approved request# {1}",
                                   GetType().Name, purchase.Number);
