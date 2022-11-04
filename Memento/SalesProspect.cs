@@ -23,6 +23,8 @@ namespace Memento.RealWorld
 
             s.Budget = 25000.0;
 
+            s.Celular = "9999-9999";
+
 
             // Store internal state
 
@@ -38,6 +40,8 @@ namespace Memento.RealWorld
             s.Phone = "(310) 209-7111";
 
             s.Budget = 1000000.0;
+
+            s.Celular = "1111-1111";
 
 
             // Restore saved state
@@ -65,6 +69,7 @@ namespace Memento.RealWorld
         private string _name;
 
         private string _phone;
+        private string _celular;
 
 
         // Gets or sets name
@@ -112,13 +117,27 @@ namespace Memento.RealWorld
         }
 
 
+        public string Celular
+        {
+            get { return _celular; }
+
+            set
+            {
+                _celular = value;
+
+                Console.WriteLine("Phone: " + _celular);
+            }
+        }
+
+
+
         // Stores memento
 
         public Memento SaveMemento(Memento atual)
         {
             Console.WriteLine("\nSaving state --\n");
 
-            var next = new Memento(_name, _phone, _budget);
+            var next = new Memento(_name, _phone, _budget, _celular);
             atual.NextMemento = next;
             next.PreviousMemento = atual;
 
@@ -146,6 +165,9 @@ namespace Memento.RealWorld
             Phone = memento.Phone;
 
             Budget = memento.Budget;
+
+            Celular = memento.Celular;
+                
         }
     }
 
@@ -157,13 +179,15 @@ namespace Memento.RealWorld
     {
         // Constructor
 
-        public Memento(string name, string phone, double budget)
+        public Memento(string name, string phone, double budget, string celular)
         {
             Name = name;
 
             Phone = phone;
 
             Budget = budget;
+
+            Celular = celular;
         }
 
 
@@ -175,6 +199,10 @@ namespace Memento.RealWorld
         // Gets or set phone
 
         public string Phone { get; set; }
+
+        // Gets or set Celular
+
+        public string Celular { get; set; }
 
 
         // Gets or sets budget

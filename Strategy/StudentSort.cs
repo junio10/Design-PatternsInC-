@@ -46,6 +46,12 @@ namespace Strategy.RealWorld
 
             studentRecords.Sort();
 
+            studentRecords.SetSortStrategy(new BubbleSort());
+
+            studentRecords.Sort();
+
+
+
 
             // Wait for user
 
@@ -101,6 +107,16 @@ namespace Strategy.RealWorld
             //list.MergeSort(); not-implemented
 
             Console.WriteLine("MergeSorted list ");
+        }
+    }
+
+    internal class BubbleSort : SortStrategy
+    {
+        public override void Sort(List<string> list)
+        {
+            //list.MergeSort(); not-implemented
+
+            Console.WriteLine("BubbleSorted list ");
         }
     }
 

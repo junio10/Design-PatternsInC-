@@ -35,6 +35,21 @@ namespace Observer.RealWorld
 
             ibm.Price = 120.75;
 
+            var microsoft = new Microsoft("Microsoft", 200.00);
+
+            microsoft.Attach(new Investor("Moises Santos"));
+
+            microsoft.Attach(new Investor("Junio Fagundes"));
+
+            microsoft.Price = 150.10;
+
+            microsoft.Price = 350.00;
+
+
+
+
+
+
 
             // Wait for user
 
@@ -128,6 +143,17 @@ namespace Observer.RealWorld
         }
     }
 
+
+
+    internal class Microsoft : Stock
+    {
+        // Constructor
+
+        public Microsoft(string symbol, double price)
+            : base(symbol, price)
+        {
+        }
+    }
 
     /// <summary>
     /// The 'Observer' interface
